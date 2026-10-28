@@ -32,15 +32,16 @@ status is in `TASKS.md`; figures over time are in `notes/PROGRESS.md`.
   without it, C matching is impossible and the owner decides how to go on. C++ name
   mangling and the EDG front end of SNC differ from GCC.
 
-## Step 3 — Comparison tooling (current phase)
+## Step 3 — Comparison tooling (done, 2026-10-28)
 
 - Goal: objdiff (`objdiff.json`, report), `tools/report_diff.py` regression gate,
   progress badges and history; `tools/asm_compare.py` on `objdiff-cli diff`;
   `tools/unit_candidates.py` for MIPS; Ghidra project with ghidra-allegrex
   (`tools/ghidra_sync.py`); optional `.ppmap` export for PPSSPP.
+- Done: all of the above but the `.ppmap` export (optional, in `TASKS.md`).
 - Postponed: decomp.dev and any public showcase.
 
-## Step 4 — Splitting into units
+## Step 4 — Splitting into units (current phase)
 
 - Goal: region map of `.text` in `notes/SPLITS.md` (SDK libraries, runtime, engine,
   game); unit bounds from the source-path strings, call clusters and data use;

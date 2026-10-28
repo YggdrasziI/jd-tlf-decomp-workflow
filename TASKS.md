@@ -24,7 +24,7 @@
 - [x] `psp-decomp-tools.md` deleted with the owner's go (content in
       `notes/REFERENCES.md`).
 
-## Current phase: Steps 3-4 — Tooling, first units (step 2 done)
+## Current phase: Step 4 — Splitting (steps 2 and 3 done)
 
 - [x] SNC 1.2.7503.0 `-O2 -g` (`notes/COMPILER.md`); probes 15/16.
 - [x] SNC in the build: `tools/compile.py` (empty sections removed), downloaded by
@@ -43,6 +43,12 @@
 - [ ] Next units: other leaf clusters (`python tools/unit_candidates.py`).
 - [ ] `func_0002D818` probe gap (load placement).
 - [ ] mwccpsp through wibo to rule it out.
+- [x] `tools/asm_compare.py` (objdiff side-by-side diff, `--objects` for scratch
+      variants) (2026-10-28).
+- [x] Ghidra 12.2 + ghidra-allegrex v21.5 + JDK 25 installed; project
+      `E:\Projets\Dev\jd-tlf-ghidra` (PRX imported and analyzed: 3868 functions,
+      link addresses); `tools/ghidra_sync.py` names the `symbol_addrs*.txt` symbols
+      (216, idempotent) (2026-10-28).
 - [x] `report_diff.py`, `progress_badges.py` (badges + card in README),
       `unit_candidates.py` for the splat layout; `ninja report` in CI with the report
       as artifact (2026-10-28). `cpp` units are `complete` (linked).
@@ -55,9 +61,7 @@
 
 - Generate the relocation tables from the link (`--emit-relocs`) instead of copying
   `elf_tail.bin` (needed before code can move; not needed for matching).
-- objdiff config and report, `report_diff.py`, `progress_badges.py`,
-  `asm_compare.py`, `unit_candidates.py` (step 3).
-- Ghidra with ghidra-allegrex, `tools/ghidra_sync.py`; `.ppmap` export for PPSSPP.
+- `.ppmap` export for PPSSPP (optional, step 3).
 - Evaluate TeamGDB/PortableKit.
 
 ## Naming leads
