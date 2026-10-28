@@ -21,9 +21,9 @@
       `PIP_BREAK_SYSTEM_PACKAGES=1`, `COPY orig /orig`), README, image workflow from
       ts2, `orig/NPUG80330/LEVELSTARTUP_DISC.PRX`. Pushing the PRX needs the owner's
       go. Then GHCR image and CI green (CI fails until the image exists).
-- [ ] `jd-tlf-decomp-workflow` to create, then push `.workflow.git`.
-- [ ] Delete `psp-decomp-tools.md` (content now in `notes/REFERENCES.md`), with the
-      owner's go.
+- [x] `jd-tlf-decomp-workflow` created by the owner, `.workflow.git` pushed (2026-10-28).
+- [x] `psp-decomp-tools.md` deleted with the owner's go (content in
+      `notes/REFERENCES.md`).
 
 ## Next: Step 2 — Compiler identification
 
