@@ -17,10 +17,9 @@
       instructions (`min`, `max`, `clz`...) as `.word`, splat `add_set_gp_64: false`.
 - [x] `git init`, `.git/info/exclude`; remote `YggdrasziI/jd-tlf-decomp`.
 - [x] First commits pushed to `jd-tlf-decomp` (2026-10-28); `.workflow.git` local.
-- [ ] `jd-tlf-decomp-build` (created, empty): Dockerfile (Ubuntu 24.04, python3-pip,
-      `PIP_BREAK_SYSTEM_PACKAGES=1`, `COPY orig /orig`), README, image workflow from
-      ts2, `orig/NPUG80330/LEVELSTARTUP_DISC.PRX`. Pushing the PRX needs the owner's
-      go. Then GHCR image and CI green (CI fails until the image exists).
+- [x] `jd-tlf-decomp-build` pushed (Dockerfile: Ubuntu 24.04, python3-pip,
+      `PIP_BREAK_SYSTEM_PACKAGES=1`, `COPY orig /orig`), GHCR image built, package
+      access given to `jd-tlf-decomp`, CI green on Linux (2026-10-28).
 - [x] `jd-tlf-decomp-workflow` created by the owner, `.workflow.git` pushed (2026-10-28).
 - [x] `psp-decomp-tools.md` deleted with the owner's go (content in
       `notes/REFERENCES.md`).
@@ -28,8 +27,10 @@
 ## Next: Step 2 — Compiler identification
 
 - [ ] SNC runtime routines and EH tables (`notes/COMPILER.md`, "Next probes").
-- [ ] PSP compilers available on decomp.me / `decompme/compilers`; SNC availability
-      (ask the owner).
+- [ ] PSP compilers on decomp.me (`decompme/compilers` releases, checked 2026-10-28):
+      `pspsnc_1.2.7503.0` (the only SNC build), `mwccpsp_3.0.1_121`..`219`,
+      `psp-gcc-1.3.1`. The owner has no ProDG. No compiler version string in the PRX.
+      Next: probes with `pspsnc_1.2.7503.0` on small leaf functions.
 - [ ] `tools/compiler_sweep.py` for MIPS.
 
 ## Later
