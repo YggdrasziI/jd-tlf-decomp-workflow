@@ -1,6 +1,6 @@
 # Tasks
 
-## Current phase: Step 1 — Setup
+## Step 1 — Setup (done)
 
 - [x] Repository skeleton, `.gitignore`, documents (`CLAUDE.md`, `SPEC.md`,
       `ROADMAP.md`, `notes/`), skills.
@@ -24,7 +24,7 @@
 - [x] `psp-decomp-tools.md` deleted with the owner's go (content in
       `notes/REFERENCES.md`).
 
-## Current phase: Steps 2-4 — Compiler, tooling, first units
+## Current phase: Steps 3-4 — Tooling, first units (step 2 done)
 
 - [x] SNC 1.2.7503.0 `-O2 -g` (`notes/COMPILER.md`); probes 15/16.
 - [x] SNC in the build: `tools/compile.py` (empty sections removed), downloaded by
