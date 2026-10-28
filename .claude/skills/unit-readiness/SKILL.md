@@ -44,8 +44,9 @@ This project has no pull requests: verified commits go straight to `main`
   separately with `git --git-dir=.workflow.git commit` and push that repository
   (`git --git-dir=.workflow.git push origin main`). Main-repository files and
   messages never refer to them.
-- After each new unit: a dated line in `notes/PROGRESS.md`, then
-  `python tools/progress_badges.py --record` and commit `progress/` with it.
+- After each new unit, once the unit is committed (the history records `HEAD`): a
+  dated line in `notes/PROGRESS.md` with the unit commit, then
+  `python tools/progress_badges.py --record`, and commit both in a second commit.
 
 ## Rules
 
