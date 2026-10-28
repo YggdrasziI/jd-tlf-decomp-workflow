@@ -33,13 +33,17 @@ uses it and it sits between the neighbours' ranges. Typical sections: `.text`,
 
 ## 3. Split and symbols
 
-- Add the unit to `config/NPUG80330/splat.levelstartup.yaml` in address order
-  (`[0x<file offset>, c, <path>]` for code, matching `rodata`/`data` subsegments);
-  file offset = vram + 0x74 in program header 0.
+- Add the unit to `config/NPUG80330/splat.levelstartup.yaml` in address order:
+  `[0x<file offset>, cpp, unit_<vram>]` (or the proven source path), then an `asm`
+  subsegment `text_<vram, 8 hex digits>` for the code after it; file offset = vram + 0x74 in
+  program header 0. Only matched functions go in a `cpp` piece: an unfinished
+  function inside a unit splits it into two `cpp` pieces (`<unit>_1`...) around an
+  `asm` one; note it in the header comment and `notes/SPLITS.md`.
 - Rename symbols in `config/NPUG80330/symbol_addrs.txt` only with evidence; otherwise
   keep `func_<addr>` / `D_<addr>`. Explain every change in the commit.
-- `python tools/configure.py` (reruns splat), then `ninja`: still matching, every
-  function is `INCLUDE_ASM`.
+- `python tools/configure.py` (reruns splat), then `ninja`: still matching. After a
+  split that shows new symbols, `python tools/reloc_overrides.py` adds `MIPS_NONE`
+  overrides; split again when it reports new entries.
 
 ## 4. Write and compare
 
@@ -52,16 +56,18 @@ uses it and it sits between the neighbours' ranges. Typical sections: `.text`,
 - Iterate on: statement and declaration order, local variables vs re-reads, `const`,
   early return vs fall-through, inline helpers, types and signedness, loop forms.
   When stuck, look the symptom up in `notes/MATCHING.md`.
-- VFPU functions stay `INCLUDE_ASM` until the compiler's VFPU support is known.
+- Functions in `extern "C"` until their real C++ name is proven, so the symbols stay
+  `func_<addr>` for the assembly and objdiff.
+- VFPU functions stay assembly until the compiler's VFPU support is known.
 - For many variants, script them in the session scratchpad and read the score from
   the report; check that the compile succeeded before reading a score.
 
 ## 5. Finish
 
-- 100 % for every function and data: remove the `INCLUDE_ASM`s, run `ninja` and check
+- 100 % for every function and data (`ninja report`): run `ninja` and check
   `LEVELSTARTUP_DISC.PRX: OK`. A per-file compiler or flag needs a justification in
   the unit's header comment and in `notes/MATCHING.md` or `notes/COMPILER.md`.
-- Otherwise keep `INCLUDE_ASM` for the unfinished functions, with a comment giving the
-  percentage and the remaining difference.
+- Otherwise the unfinished functions stay `asm` subsegments, with a comment in the
+  `.cpp` giving the percentage and the remaining difference.
 - Add or update the unit's row in `notes/SPLITS.md` (bounds, content, status).
 - Then run the `unit-readiness` skill.

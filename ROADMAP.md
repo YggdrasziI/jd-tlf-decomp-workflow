@@ -40,7 +40,7 @@ status is in `TASKS.md`; figures over time are in `notes/PROGRESS.md`.
 
 - Goal: region map of `.text` in `notes/SPLITS.md` (SDK libraries, runtime, engine,
   game); unit bounds from the source-path strings, call clusters and data use;
-  `.text` split into per-unit files with `INCLUDE_ASM`.
+  `.text` split into `cpp` units and the `asm` pieces between them.
 - Generate the relocation tables from the link instead of copying them, once code is
   compiled (not needed while the layout does not move).
 - Exit criteria: every region assigned to a unit with evidence.

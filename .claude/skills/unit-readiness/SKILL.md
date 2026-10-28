@@ -18,8 +18,8 @@ This project has no pull requests: verified commits go straight to `main`
    going on; renamed symbols at 100 % are fine.
 3. Consistency:
    - every unit called matching is at 100 % for all functions and data;
-   - every unfinished function keeps its `INCLUDE_ASM` with its gap written above it
-     and in `TASKS.md`;
+   - every unfinished function stays an `asm` subsegment, with its gap written in the
+     `.cpp` and in `TASKS.md`;
    - each change to the splat yaml and `symbol_addrs.txt` is explained;
      `symbol_addrs.prx.txt` and `config/nids.txt` only change through
      `tools/prx_symbols.py`.

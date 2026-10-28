@@ -34,7 +34,7 @@ Project rules are in `CLAUDE.md`; do not repeat them here.
 7. Execute one unit at a time with the `decomp-unit` skill, then close it with the
    `unit-readiness` skill (gate, docs, commit, push).
 8. Time-box each function: after a few unsuccessful families of variants, record the
-   gap in `TASKS.md`, keep its `INCLUDE_ASM` and move on.
+   gap in `TASKS.md`, leave it in assembly and move on.
 9. At the end of a session (or when asked), update `TASKS.md`, add the session's new
    techniques to `notes/MATCHING.md`, and after each new unit add a line to
    `notes/PROGRESS.md` and run `python tools/progress_badges.py --record`.

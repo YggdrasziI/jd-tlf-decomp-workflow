@@ -24,18 +24,26 @@
 - [x] `psp-decomp-tools.md` deleted with the owner's go (content in
       `notes/REFERENCES.md`).
 
-## Next: Step 2 — Compiler identification
+## Current phase: Steps 2-4 — Compiler, tooling, first units
 
-- [ ] SNC runtime routines and EH tables (`notes/COMPILER.md`, "Next probes").
-- [x] PSP compilers from decomp.me in `tools/compilers/` (2026-10-28):
-      `pspsnc_1.2.7503.0`, `mwccpsp_3.0.1_219`, `psp-gcc-1.3.1` (Linux only, not run).
-- [x] Probes `tools/probes/snc_{leaf,branch}.cpp`: SNC 1.2.7503.0 **`-O2 -g`** gives
-      15/16 identical functions (`notes/COMPILER.md`, 2026-10-28). `-g` is what
-      gives the single epilogue and unthreaded `b` chains.
-- [ ] `func_0002D818`: `self->key` load placement not reproduced.
-- [x] m2c from git installed by the owner (2026-10-28); works on the `.vfpu.s` copy.
-- [ ] mwccpsp hangs when run natively: retry through wibo to rule it out.
-- [ ] `tools/compiler_sweep.py` for MIPS.
+- [x] SNC 1.2.7503.0 `-O2 -g` (`notes/COMPILER.md`); probes 15/16.
+- [x] SNC in the build: `tools/compile.py` (empty sections removed), downloaded by
+      `ninja` (`download_tool.py compiler`), wibo on Linux; CI green (2026-10-28).
+- [x] No `INCLUDE_ASM` (SNC moves file-scope asm): units are `cpp` subsegments,
+      unfinished code stays `asm` subsegments.
+- [x] `tools/reloc_overrides.py`: `MIPS_NONE` for symbol guesses the PRX does not
+      relocate (26147 entries).
+- [x] objdiff: `objdiff.json` from `configure.py`, `ninja report`.
+- [x] First unit `src/unit_000960A4.cpp` (3 functions, 100 %).
+- [ ] Next units: the functions after 0x960D0 using `D_0012C280` (0x960D0-0x964A4
+      region), then other leaf clusters.
+- [ ] `func_0002D818` probe gap (load placement).
+- [ ] mwccpsp through wibo to rule it out.
+- [ ] Port `report_diff.py`, `progress_badges.py`, `unit_candidates.py` from ts2 for
+      the splat layout; `ninja report` in CI.
+- [ ] Unit data: `.rodata`/`.data` of units (rodata migration, per-unit data
+      subsegments) once a unit has some.
+- [ ] Header dependencies for `src/` (SNC dependency output) so header edits rebuild.
 
 ## Later
 

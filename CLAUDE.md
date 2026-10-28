@@ -82,9 +82,10 @@ propriétaire.
 - `ninja` doit finir par `build/NPUG80330/LEVELSTARTUP_DISC.PRX: OK`.
 - Avant un commit : aucune régression au rapport objdiff
   (`python tools/report_diff.py`, base sauvée avec `--save`) dès qu'il existe.
-- Une unité ne passe en matching (`asm` → `c` dans le yaml, plus d'`INCLUDE_ASM`)
-  qu'à 100 % ; sinon les fonctions restantes gardent leur `INCLUDE_ASM` avec l'écart
-  noté dans `TASKS.md`.
+- Une fonction passe en C++ (sous-segment `cpp` du yaml) seulement à 100 % ; une
+  fonction non terminée reste un sous-segment `asm` entre les morceaux `cpp` de son
+  unité (pas d'`INCLUDE_ASM` : SNC déplace l'assembleur de fichier), avec l'écart noté
+  à sa place dans le `.cpp` et dans `TASKS.md`.
 - Lire l'erreur complète avant de corriger ; corriger la cause, jamais affaiblir la
   vérification.
 - Sous Windows, outils natifs (pas WSL). Fichiers temporaires dans le scratchpad de
