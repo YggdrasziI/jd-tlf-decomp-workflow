@@ -52,7 +52,8 @@ uses it and it sits between the neighbours' ranges. Typical sections: `.text`,
   decompiled functions `extern` with their splat names.
 - First draft: m2c (command in `SPEC.md`, on the `.vfpu.s` copy); never keep its
   output unchecked. Compile with SNC `-O2 -g` (`notes/COMPILER.md`).
-- `ninja`, then compare with objdiff (GUI or `python tools/asm_compare.py`, step 3).
+- `ninja`, then compare with objdiff (GUI or `python tools/asm_compare.py <unit> <function>`;
+  a scratch variant: `--objects build/NPUG80330/target/<unit>.o <variant.o> <function>`).
 - Iterate on: statement and declaration order, local variables vs re-reads, `const`,
   early return vs fall-through, inline helpers, types and signedness, loop forms.
   When stuck, look the symptom up in `notes/MATCHING.md`.
