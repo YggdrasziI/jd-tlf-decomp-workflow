@@ -39,8 +39,10 @@
       region), then other leaf clusters.
 - [ ] `func_0002D818` probe gap (load placement).
 - [ ] mwccpsp through wibo to rule it out.
-- [ ] Port `report_diff.py`, `progress_badges.py`, `unit_candidates.py` from ts2 for
-      the splat layout; `ninja report` in CI.
+- [x] `report_diff.py`, `progress_badges.py` (badges + card in README),
+      `unit_candidates.py` for the splat layout; `ninja report` in CI with the report
+      as artifact (2026-10-28). `cpp` units are `complete` (linked).
+- [ ] `progress_badges.py` regions: empty until the region map is known.
 - [ ] Unit data: `.rodata`/`.data` of units (rodata migration, per-unit data
       subsegments) once a unit has some.
 - [ ] Header dependencies for `src/` (SNC dependency output) so header edits rebuild.
