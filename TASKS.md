@@ -27,10 +27,13 @@
 ## Next: Step 2 — Compiler identification
 
 - [ ] SNC runtime routines and EH tables (`notes/COMPILER.md`, "Next probes").
-- [ ] PSP compilers on decomp.me (`decompme/compilers` releases, checked 2026-10-28):
-      `pspsnc_1.2.7503.0` (the only SNC build), `mwccpsp_3.0.1_121`..`219`,
-      `psp-gcc-1.3.1`. The owner has no ProDG. No compiler version string in the PRX.
-      Next: probes with `pspsnc_1.2.7503.0` on small leaf functions.
+- [x] PSP compilers from decomp.me in `tools/compilers/` (2026-10-28):
+      `pspsnc_1.2.7503.0`, `mwccpsp_3.0.1_219`, `psp-gcc-1.3.1` (Linux only, not run).
+- [x] First probe `tools/probes/snc_leaf.cpp`: SNC 1.2.7503.0 `-O2` gives 6/8
+      identical functions (`notes/COMPILER.md`).
+- [ ] Gaps: `func_0007E6D8` (single return vs duplicated `jr $ra`),
+      `func_001051AC` (`$a1` vs `$a0`). Version, flag or source? More probes.
+- [ ] mwccpsp hangs when run natively: retry through wibo to rule it out.
 - [ ] `tools/compiler_sweep.py` for MIPS.
 
 ## Later
