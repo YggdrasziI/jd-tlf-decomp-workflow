@@ -62,6 +62,8 @@
       linker puts `.gnu.linkonce.t` / COMDAT functions; which game files use them).
 - [ ] Library units: identify the SDK libraries (libc, libm, GE library) and their
       versions before decompiling (step 5); names stay `func_` until proven.
+- [x] `unit_0009B834` (0x9B834-0x9B874 + `.data` 0x12CA90-0x12CA98): first unit with
+      bounds from `.cplinit`, own data and static initialization (2026-10-28).
 - [ ] Game units between `.cplinit` ends; 0x0A62A4-0x0BC580 has no entry (other
       evidence needed).
 - [ ] Unit data: `.rodata`/`.data` of units (rodata migration, per-unit data
