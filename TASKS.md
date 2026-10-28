@@ -35,8 +35,12 @@
       relocate (26147 entries).
 - [x] objdiff: `objdiff.json` from `configure.py`, `ninja report`.
 - [x] First unit `src/unit_000960A4.cpp` (3 functions, 100 %).
-- [ ] Next units: the functions after 0x960D0 using `D_0012C280` (0x960D0-0x964A4
-      region), then other leaf clusters.
+- [x] `unit_000960A4` extended to 0x96528: 7 of 8 functions (2026-10-28).
+- [ ] `func_0009630C` (`text_0009630C`, between `unit_000960A4.cpp` and
+      `unit_000960A4_1.cpp`): best attempt in the comment of `unit_000960A4.cpp`;
+      gap: the original copies `$a0` to `$s2` before the second owner null test, and
+      the loop counter registers are swapped.
+- [ ] Next units: other leaf clusters (`python tools/unit_candidates.py`).
 - [ ] `func_0002D818` probe gap (load placement).
 - [ ] mwccpsp through wibo to rule it out.
 - [x] `report_diff.py`, `progress_badges.py` (badges + card in README),
