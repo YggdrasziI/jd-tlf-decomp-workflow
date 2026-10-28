@@ -52,7 +52,18 @@
 - [x] `report_diff.py`, `progress_badges.py` (badges + card in README),
       `unit_candidates.py` for the splat layout; `ninja report` in CI with the report
       as artifact (2026-10-28). `cpp` units are `complete` (linked).
-- [ ] `progress_badges.py` regions: empty until the region map is known.
+- [x] Region map of `.text` (`notes/SPLITS.md`): game and engine 0x0-0xF16AC,
+      libraries 0xF16AC-0x10721C (libc start-up, C++ runtime, libm, libc, GE
+      library), late copies 0x10721C-0x10B5E4 (hypothesis: COMDAT); card regions
+      in `progress_badges.py` (2026-10-28).
+- [x] Unit ends from `.cplinit`: SNC puts `__sti__<file>` last
+      (`tools/probes/snc_sti.cpp`); `tools/tu_ends.py` lists the 88 ends.
+- [ ] Late copies 0x10721C-0x10B5E4: check the COMDAT hypothesis (where the SN
+      linker puts `.gnu.linkonce.t` / COMDAT functions; which game files use them).
+- [ ] Library units: identify the SDK libraries (libc, libm, GE library) and their
+      versions before decompiling (step 5); names stay `func_` until proven.
+- [ ] Game units between `.cplinit` ends; 0x0A62A4-0x0BC580 has no entry (other
+      evidence needed).
 - [ ] Unit data: `.rodata`/`.data` of units (rodata migration, per-unit data
       subsegments) once a unit has some.
 - [ ] Header dependencies for `src/` (SNC dependency output) so header edits rebuild.
