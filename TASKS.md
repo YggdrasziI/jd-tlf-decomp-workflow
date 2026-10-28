@@ -64,6 +64,9 @@
       versions before decompiling (step 5); names stay `func_` until proven.
 - [x] `unit_0009B834` (0x9B834-0x9B874 + `.data` 0x12CA90-0x12CA98): first unit with
       bounds from `.cplinit`, own data and static initialization (2026-10-28).
+- [x] `unit_0008EBB4`, `unit_0009E65C` (own `.rodata` too), same method (2026-10-28).
+      Three files share `float D = 0.62831855f; static float D2 = D * 0.5f;`
+      (hypothesis: a header): look for it in the other small files.
 - [ ] Game units between `.cplinit` ends; 0x0A62A4-0x0BC580 has no entry (other
       evidence needed).
 - [ ] Unit data: `.rodata`/`.data` of units (rodata migration, per-unit data
