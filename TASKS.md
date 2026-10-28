@@ -33,9 +33,7 @@
       15/16 identical functions (`notes/COMPILER.md`, 2026-10-28). `-g` is what
       gives the single epilogue and unthreaded `b` chains.
 - [ ] `func_0002D818`: `self->key` load placement not reproduced.
-- [ ] m2c: the PyPI `m2c` was an unrelated package (uninstalled, requirements now
-      point to matt-kempster/m2c on git); installing it from git needs the owner's
-      approval.
+- [x] m2c from git installed by the owner (2026-10-28); works on the `.vfpu.s` copy.
 - [ ] mwccpsp hangs when run natively: retry through wibo to rule it out.
 - [ ] `tools/compiler_sweep.py` for MIPS.
 

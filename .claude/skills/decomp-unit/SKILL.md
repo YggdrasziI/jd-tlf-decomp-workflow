@@ -46,7 +46,8 @@ uses it and it sits between the neighbours' ranges. Typical sections: `.text`,
 - Header comment: unit range, how the bounds were found, real file name if proven.
 - Reuse shared headers (`include/`) and types already named; declare not yet
   decompiled functions `extern` with their splat names.
-- First draft: `m2c` on the function's assembly; never keep its output unchecked.
+- First draft: m2c (command in `SPEC.md`, on the `.vfpu.s` copy); never keep its
+  output unchecked. Compile with SNC `-O2 -g` (`notes/COMPILER.md`).
 - `ninja`, then compare with objdiff (GUI or `python tools/asm_compare.py`, step 3).
 - Iterate on: statement and declaration order, local variables vs re-reads, `const`,
   early return vs fall-through, inline helpers, types and signedness, loop forms.
